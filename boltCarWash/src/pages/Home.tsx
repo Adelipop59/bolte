@@ -120,6 +120,64 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Calendar Section */}
+      <div className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold gradient-text mb-4">Réservez votre créneau</h2>
+            <p className="text-xl text-gray-600">Choisissez le jour et l'heure qui vous conviennent</p>
+          </div>
+          
+          <div className="glass-card p-8 rounded-2xl max-w-3xl mx-auto">
+            <div className="grid grid-cols-7 gap-2 mb-4">
+              {['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'].map((day) => (
+                <div key={day} className="text-center font-semibold text-gray-600">
+                  {day}
+                </div>
+              ))}
+            </div>
+            
+            <div className="grid grid-cols-7 gap-2">
+              {[...Array(31)].map((_, index) => (
+                <div
+                  key={index}
+                  className={`
+                    aspect-square flex items-center justify-center rounded-lg
+                    ${index < 3 ? 'text-gray-400' : 'hover:bg-blue-50 cursor-pointer'}
+                    ${index === 15 ? 'bg-blue-100 text-blue-600 font-semibold' : ''}
+                  `}
+                >
+                  {index < 3 ? 29 + index : index - 2}
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 pt-8 border-t border-gray-200">
+              <h3 className="text-lg font-semibold mb-4">Créneaux disponibles</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {['09:00', '10:30', '14:00', '15:30'].map((time) => (
+                  <button
+                    key={time}
+                    className="py-2 px-4 rounded-lg border border-blue-200 text-blue-600 hover:bg-blue-50 transition-colors"
+                  >
+                    {time}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-8 text-center">
+              <Link
+                to="/contact"
+                className="inline-block px-8 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Confirmer la réservation
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Testimonials Section */}
       <div className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
